@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="vaksindbModelStoreContainer" CdmEntityContainer="vaksindbEntities">
+    <EntitySetMapping Name="laporanvaksin">
+      <EntityTypeMapping TypeName="vaksindbModel.laporanvaksin">
+        <MappingFragment StoreEntitySet="laporanvaksin">
+          <ScalarProperty Name="idLaporan" ColumnName="idLaporan" />
+          <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+          <ScalarProperty Name="idProdusen" ColumnName="idProdusen" />
+          <ScalarProperty Name="idBPOM" ColumnName="idBPOM" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vaksindbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bpom">
+    <Key>
+      <PropertyRef Name="idBPOM" />
+    </Key>
+    <Property Name="idBPOM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="noTelepon" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="alamatBPOM" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pasien">
+    <Key>
+      <PropertyRef Name="nikPasien" />
+    </Key>
+    <Property Name="noRegPasien" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="nikPasien" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="noRekamMedis" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="namaPasien" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="alamatPasien" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idPemerintah" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="noRegVaksin" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="idRS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="noTelepon" Type="varchar" MaxLength="13" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pelaporan_penggunaan">
+    <Key>
+      <PropertyRef Name="idPelaporanP" />
+    </Key>
+    <Property Name="idPelaporanP" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="idBPOM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="idRS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="noRegVaksin" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="nikPasien" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="noRekamMedis" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="statusV" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rumah_sakit">
+    <Key>
+      <PropertyRef Name="idRS" />
+    </Key>
+    <Property Name="idRS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="namaRS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="alamatRS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nikPasien" Type="bigint" Nullable="false" />
+    <Property Name="noTelepon" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="noRegVaksin" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vaksin">
+    <Key>
+      <PropertyRef Name="idVaksin" />
+    </Key>
+    <Property Name="idVaksin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="noRegVaksin" Type="varchar" MaxLength="15" />
+    <Property Name="statusVPasien" Type="varchar" MaxLength="15" />
+    <Property Name="idProdusen" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="vaksindbModelStoreContainer">
+    <EntitySet Name="bpom" EntityType="Self.bpom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pasien" EntityType="Self.pasien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pelaporan_penggunaan" EntityType="Self.pelaporan_penggunaan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rumah_sakit" EntityType="Self.rumah_sakit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vaksin" EntityType="Self.vaksin" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

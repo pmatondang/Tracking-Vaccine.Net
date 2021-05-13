@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vaksindbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bpom">
+    <Key>
+      <PropertyRef Name="idBPOM" />
+    </Key>
+    <Property Name="idBPOM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="noTelepon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="alamatBPOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="pelaporanvaksin" Relationship="Self.FK__pelaporan__idBPO__412EB0B6" FromRole="bpom" ToRole="pelaporanvaksin" />
+  </EntityType>
+  <EntityType Name="pelaporanvaksin">
+    <Key>
+      <PropertyRef Name="idLaporan" />
+    </Key>
+    <Property Name="idLaporan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idVaksin" Type="Int32" />
+    <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="idProdusen" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="idBPOM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bpom" Relationship="Self.FK__pelaporan__idBPO__412EB0B6" FromRole="pelaporanvaksin" ToRole="bpom" />
+    <NavigationProperty Name="produsen" Relationship="Self.FK__pelaporan__idPro__403A8C7D" FromRole="pelaporanvaksin" ToRole="produsen" />
+    <NavigationProperty Name="vaksin" Relationship="Self.FK__pelaporan__idVak__3F466844" FromRole="pelaporanvaksin" ToRole="vaksin" />
+  </EntityType>
+  <EntityType Name="produsen">
+    <Key>
+      <PropertyRef Name="idProdusen" />
+    </Key>
+    <Property Name="idProdusen" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="namaProdusen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="alamatProdusen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="noTelepon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="pelaporanvaksin" Relationship="Self.FK__pelaporan__idPro__403A8C7D" FromRole="produsen" ToRole="pelaporanvaksin" />
+  </EntityType>
+  <EntityType Name="vaksin">
+    <Key>
+      <PropertyRef Name="idVaksin" />
+    </Key>
+    <Property Name="idVaksin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="noRegVaksin" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="statusVPasien" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="idProdusen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="pelaporanvaksin" Relationship="Self.FK__pelaporan__idVak__3F466844" FromRole="vaksin" ToRole="pelaporanvaksin" />
+  </EntityType>
+  <Association Name="FK__pelaporan__idBPO__412EB0B6">
+    <End Role="bpom" Type="Self.bpom" Multiplicity="0..1" />
+    <End Role="pelaporanvaksin" Type="Self.pelaporanvaksin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bpom">
+        <PropertyRef Name="idBPOM" />
+      </Principal>
+      <Dependent Role="pelaporanvaksin">
+        <PropertyRef Name="idBPOM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pelaporan__idPro__403A8C7D">
+    <End Role="produsen" Type="Self.produsen" Multiplicity="0..1" />
+    <End Role="pelaporanvaksin" Type="Self.pelaporanvaksin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="produsen">
+        <PropertyRef Name="idProdusen" />
+      </Principal>
+      <Dependent Role="pelaporanvaksin">
+        <PropertyRef Name="idProdusen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pelaporan__idVak__3F466844">
+    <End Role="vaksin" Type="Self.vaksin" Multiplicity="0..1" />
+    <End Role="pelaporanvaksin" Type="Self.pelaporanvaksin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vaksin">
+        <PropertyRef Name="idVaksin" />
+      </Principal>
+      <Dependent Role="pelaporanvaksin">
+        <PropertyRef Name="idVaksin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="vaksinEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bpom" EntityType="Self.bpom" />
+    <EntitySet Name="pelaporanvaksin" EntityType="Self.pelaporanvaksin" />
+    <EntitySet Name="produsen" EntityType="Self.produsen" />
+    <EntitySet Name="vaksin" EntityType="Self.vaksin" />
+    <AssociationSet Name="FK__pelaporan__idBPO__412EB0B6" Association="Self.FK__pelaporan__idBPO__412EB0B6">
+      <End Role="bpom" EntitySet="bpom" />
+      <End Role="pelaporanvaksin" EntitySet="pelaporanvaksin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pelaporan__idPro__403A8C7D" Association="Self.FK__pelaporan__idPro__403A8C7D">
+      <End Role="produsen" EntitySet="produsen" />
+      <End Role="pelaporanvaksin" EntitySet="pelaporanvaksin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pelaporan__idVak__3F466844" Association="Self.FK__pelaporan__idVak__3F466844">
+      <End Role="vaksin" EntitySet="vaksin" />
+      <End Role="pelaporanvaksin" EntitySet="pelaporanvaksin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

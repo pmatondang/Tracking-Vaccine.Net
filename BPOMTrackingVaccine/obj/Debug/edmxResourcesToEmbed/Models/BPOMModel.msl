@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="vaksindbModelStoreContainer" CdmEntityContainer="vaksindbEntities2">
+    <EntitySetMapping Name="laporanvaksin">
+      <EntityTypeMapping TypeName="vaksindbModel.laporanvaksin">
+        <MappingFragment StoreEntitySet="laporanvaksin">
+          <ScalarProperty Name="idLaporan" ColumnName="idLaporan" />
+          <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+          <ScalarProperty Name="idProdusen" ColumnName="idProdusen" />
+          <ScalarProperty Name="idBPOM" ColumnName="idBPOM" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pasien">
+      <EntityTypeMapping TypeName="vaksindbModel.pasien">
+        <MappingFragment StoreEntitySet="pasien">
+          <ScalarProperty Name="noRegPasien" ColumnName="noRegPasien" />
+          <ScalarProperty Name="nikPasien" ColumnName="nikPasien" />
+          <ScalarProperty Name="noRekamMedis" ColumnName="noRekamMedis" />
+          <ScalarProperty Name="namaPasien" ColumnName="namaPasien" />
+          <ScalarProperty Name="alamatPasien" ColumnName="alamatPasien" />
+          <ScalarProperty Name="idPemerintah" ColumnName="idPemerintah" />
+          <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+          <ScalarProperty Name="idRS" ColumnName="idRS" />
+          <ScalarProperty Name="noTelepon" ColumnName="noTelepon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pelaporan_penggunaan">
+      <EntityTypeMapping TypeName="vaksindbModel.pelaporan_penggunaan">
+        <MappingFragment StoreEntitySet="pelaporan_penggunaan">
+          <ScalarProperty Name="idPelaporanP" ColumnName="idPelaporanP" />
+          <ScalarProperty Name="idBPOM" ColumnName="idBPOM" />
+          <ScalarProperty Name="idRS" ColumnName="idRS" />
+          <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+          <ScalarProperty Name="nikPasien" ColumnName="nikPasien" />
+          <ScalarProperty Name="noRekamMedis" ColumnName="noRekamMedis" />
+          <ScalarProperty Name="statusV" ColumnName="statusV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="produsen">
+      <EntityTypeMapping TypeName="vaksindbModel.produsen">
+        <MappingFragment StoreEntitySet="produsen">
+          <ScalarProperty Name="idProdusen" ColumnName="idProdusen" />
+          <ScalarProperty Name="namaProdusen" ColumnName="namaProdusen" />
+          <ScalarProperty Name="alamatProdusen" ColumnName="alamatProdusen" />
+          <ScalarProperty Name="noTelepon" ColumnName="noTelepon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rumah_sakit">
+      <EntityTypeMapping TypeName="vaksindbModel.rumah_sakit">
+        <MappingFragment StoreEntitySet="rumah_sakit">
+          <ScalarProperty Name="idRS" ColumnName="idRS" />
+          <ScalarProperty Name="namaRS" ColumnName="namaRS" />
+          <ScalarProperty Name="alamatRS" ColumnName="alamatRS" />
+          <ScalarProperty Name="nikPasien" ColumnName="nikPasien" />
+          <ScalarProperty Name="noTelepon" ColumnName="noTelepon" />
+          <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vaksin">
+      <EntityTypeMapping TypeName="vaksindbModel.vaksin">
+        <MappingFragment StoreEntitySet="vaksin">
+          <ScalarProperty Name="idVaksin" ColumnName="idVaksin" />
+          <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+          <ScalarProperty Name="statusVPasien" ColumnName="statusVPasien" />
+          <ScalarProperty Name="idProdusen" ColumnName="idProdusen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

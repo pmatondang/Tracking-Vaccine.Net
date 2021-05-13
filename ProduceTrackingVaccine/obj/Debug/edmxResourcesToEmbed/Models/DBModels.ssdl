@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vaksindbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bpom">
+    <Key>
+      <PropertyRef Name="idBPOM" />
+    </Key>
+    <Property Name="idBPOM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="noTelepon" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="alamatBPOM" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pelaporanvaksin">
+    <Key>
+      <PropertyRef Name="idLaporan" />
+    </Key>
+    <Property Name="idLaporan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idVaksin" Type="int" />
+    <Property Name="noRegVaksin" Type="varchar" MaxLength="15" />
+    <Property Name="idProdusen" Type="varchar" MaxLength="15" />
+    <Property Name="idBPOM" Type="varchar" MaxLength="10" />
+    <Property Name="status" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="produsen">
+    <Key>
+      <PropertyRef Name="idProdusen" />
+    </Key>
+    <Property Name="idProdusen" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="namaProdusen" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="alamatProdusen" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="noTelepon" Type="varchar" MaxLength="13" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vaksin">
+    <Key>
+      <PropertyRef Name="idVaksin" />
+    </Key>
+    <Property Name="idVaksin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="noRegVaksin" Type="varchar" MaxLength="20" />
+    <Property Name="statusVPasien" Type="varchar" MaxLength="20" />
+    <Property Name="idProdusen" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__pelaporan__idBPO__412EB0B6">
+    <End Role="bpom" Type="Self.bpom" Multiplicity="0..1" />
+    <End Role="pelaporanvaksin" Type="Self.pelaporanvaksin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bpom">
+        <PropertyRef Name="idBPOM" />
+      </Principal>
+      <Dependent Role="pelaporanvaksin">
+        <PropertyRef Name="idBPOM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pelaporan__idPro__403A8C7D">
+    <End Role="produsen" Type="Self.produsen" Multiplicity="0..1" />
+    <End Role="pelaporanvaksin" Type="Self.pelaporanvaksin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="produsen">
+        <PropertyRef Name="idProdusen" />
+      </Principal>
+      <Dependent Role="pelaporanvaksin">
+        <PropertyRef Name="idProdusen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pelaporan__idVak__3F466844">
+    <End Role="vaksin" Type="Self.vaksin" Multiplicity="0..1" />
+    <End Role="pelaporanvaksin" Type="Self.pelaporanvaksin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vaksin">
+        <PropertyRef Name="idVaksin" />
+      </Principal>
+      <Dependent Role="pelaporanvaksin">
+        <PropertyRef Name="idVaksin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="vaksindbModelStoreContainer">
+    <EntitySet Name="bpom" EntityType="Self.bpom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pelaporanvaksin" EntityType="Self.pelaporanvaksin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="produsen" EntityType="Self.produsen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vaksin" EntityType="Self.vaksin" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__pelaporan__idBPO__412EB0B6" Association="Self.FK__pelaporan__idBPO__412EB0B6">
+      <End Role="bpom" EntitySet="bpom" />
+      <End Role="pelaporanvaksin" EntitySet="pelaporanvaksin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pelaporan__idPro__403A8C7D" Association="Self.FK__pelaporan__idPro__403A8C7D">
+      <End Role="produsen" EntitySet="produsen" />
+      <End Role="pelaporanvaksin" EntitySet="pelaporanvaksin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pelaporan__idVak__3F466844" Association="Self.FK__pelaporan__idVak__3F466844">
+      <End Role="vaksin" EntitySet="vaksin" />
+      <End Role="pelaporanvaksin" EntitySet="pelaporanvaksin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

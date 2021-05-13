@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - TrackingVaccine.com</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <style>
+        #home {
+            background: #ACE1AF;
+        }
+    </style>
+</head>
+<body id="home">>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("TrackingVaccine.com", "Home", "RS", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Home", "RS")</li>
+                    <li>@Html.ActionLink("Lapor Penggunaan", "Index", "RS")</li>
+                    <li style="float:right">@Html.ActionLink("Logout", "Index", "Autentikasi")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <center>
+            <footer>
+                <p>
+                    &copy; @DateTime.Now.Year - D3TI19-04 | Pemrograman Teknologi .NET |
+                    <a href="" target="_blank" style="color:black"><b>@Html.ActionLink("TrackingVaccine.com", "Home", "RS")</b></a>
+                </p>
+            </footer>
+        </center>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

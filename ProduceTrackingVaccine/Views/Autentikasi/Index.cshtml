@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Login Form</title>
+</head>
+
+<body>
+    <!-- /login-section -->
+
+    <section class="w3l-forms-23">
+        <div class="forms23-block-hny">
+            <div class="wrapper">
+                <h1 style="font-size: 50px;">Login Form</h1>
+                <!-- if logo is image enable this
+                    <a class="logo" href="index.html">
+                      <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                    </a>
+                -->
+                <div class="d-grid forms23-grids">
+                    <div class="form23">
+                        <div class="main-bg">
+                            <h6 class="sec-one"></h6>
+                            <div class="speci-login first-look">
+                                <img src="~/images/user.png" alt="" class="img-responsive">
+                            </div>
+                        </div>
+                        <div class="bottom-content">
+                            <form action="~/Autentikasi/Login" method="post">
+                                <p>
+                                    <input type="text" name="username" class="input-form" placeholder="username" required="required" />
+                                    <input type="password" name="password" class="input-form" placeholder="password" required="required" />
+                                    <button type="submit" class="loginhny-btn btn">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3l-copy-right text-center">
+                    <p>
+                        © 2021 D3TI19-04 | Pemrograman Teknologi .NET |
+                        <a href="#" target="_blank"> Tracking Vaccine</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //login-section -->
+</body>
+
+</html>

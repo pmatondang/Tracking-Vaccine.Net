@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vaksindbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="laporanvaksin">
+    <Key>
+      <PropertyRef Name="idLaporan" />
+    </Key>
+    <Property Name="idLaporan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="idProdusen" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="idBPOM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="pasien">
+    <Key>
+      <PropertyRef Name="nikPasien" />
+    </Key>
+    <Property Name="noRegPasien" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nikPasien" Type="Int64" Nullable="false" />
+    <Property Name="noRekamMedis" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="namaPasien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="alamatPasien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idPemerintah" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idRS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="noTelepon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pelaporan_penggunaan">
+    <Key>
+      <PropertyRef Name="idPelaporanP" />
+    </Key>
+    <Property Name="idPelaporanP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idBPOM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idRS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nikPasien" Type="Int64" Nullable="false" />
+    <Property Name="noRekamMedis" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="statusV" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="produsen">
+    <Key>
+      <PropertyRef Name="idProdusen" />
+    </Key>
+    <Property Name="idProdusen" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="namaProdusen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="alamatProdusen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="noTelepon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rumah_sakit">
+    <Key>
+      <PropertyRef Name="idRS" />
+    </Key>
+    <Property Name="idRS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="namaRS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="alamatRS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nikPasien" Type="Int64" Nullable="false" />
+    <Property Name="noTelepon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vaksin">
+    <Key>
+      <PropertyRef Name="idVaksin" />
+    </Key>
+    <Property Name="idVaksin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="statusVPasien" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="idProdusen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="vaksindbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="laporanvaksin" EntityType="Self.laporanvaksin" />
+    <EntitySet Name="pasien" EntityType="Self.pasien" />
+    <EntitySet Name="pelaporan_penggunaan" EntityType="Self.pelaporan_penggunaan" />
+    <EntitySet Name="produsen" EntityType="Self.produsen" />
+    <EntitySet Name="rumah_sakit" EntityType="Self.rumah_sakit" />
+    <EntitySet Name="vaksin" EntityType="Self.vaksin" />
+  </EntityContainer>
+</Schema>

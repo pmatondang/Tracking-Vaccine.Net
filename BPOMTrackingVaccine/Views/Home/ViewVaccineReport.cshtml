@@ -1,0 +1,211 @@
+﻿@model IEnumerable<BPOMTrackingVaccine.Models.laporanvaksin>
+
+@{
+    ViewBag.Title = "ViewVaccineReport";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+    string[] TableHeaders = new string[]
+{
+        "ID Laporan",
+         "ID BPOM",
+         "ID Produsen",
+        "No Registrasi Vaksin"
+    };
+}
+
+    <style>
+        .radius {
+            border-radius: 0.5em;
+        }
+
+        .styled-table {
+            margin: 25px 0;
+            font-family: sans-serif;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border-radius: 0.7em;
+            width: 80%;
+        }
+
+            .styled-table thead tr {
+                background-color: #009879;
+                color: #ffffff;
+                text-align: left;
+                border-radius: 0.3em;
+            }
+
+            .styled-table th,
+            .styled-table td {
+                padding: 12px 15px;
+                border-radius: 0.5em;
+            }
+
+            .styled-table tbody tr {
+                border-bottom: 1px solid #dddddd;
+            }
+
+                .styled-table tbody tr:nth-of-type(even) {
+                    background-color: #f3f3f3;
+                }
+
+                .styled-table tbody tr:last-of-type {
+                    border-bottom: 2px solid #009879;
+                }
+
+                .styled-table tbody tr.active-row {
+                    font-weight: bold;
+                    color: #009879;
+                }
+
+        body {
+            counter-reset: Count-Value;
+        }
+
+        table {
+            border-collapse: separate;
+        }
+
+        tr td:first-child:before {
+            counter-increment: Count-Value;
+            content: counter(Count-Value);
+        }
+
+        body {
+            margin: 0px auto;
+            padding: 0px;
+            text-align: center;
+            width: 100%;
+            font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+            background-color: #A9D0F5;
+        }
+
+        #header {
+            width: 100%;
+            margin: 0px auto;
+            padding: 0px;
+            text-align: center;
+            height: 70px;
+            line-height: 70px;
+            background-color: #eff1f2;
+        }
+
+            #header li {
+                display: inline-block;
+                margin-right: 25px;
+                font-size: 17px;
+                color: #084B8A;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            #header #site_name {
+                text-align: left;
+                width: 680px;
+                font-size: 35px;
+                margin-left: 20px;
+            }
+
+        #home {
+            margin-top: 100px;
+            box-sizing: border-box;
+            color: black;
+            background: #BBD2C5;
+        }
+
+        #contact {
+            margin-top: 330px;
+            width: 100%;
+            height: 80px;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: #eff1f2;
+            border-radius: 0px;
+            color: black;
+        }
+
+        #home h1 {
+            font-size: 40px;
+        }
+
+        #home p p {
+            font-size: 20px;
+            text-align: left;
+        }
+
+        #contact input[type="text"] {
+            width: 250px;
+            height: 35px;
+            padding-left: 10px;
+            float: left;
+            margin-left: 80px;
+            border: none;
+        }
+
+        #contact textarea {
+            float: left;
+            width: 250px;
+            height: 35px;
+            margin-left: 20px;
+            border: none;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        #contact input[type="submit"] {
+            float: left;
+            margin-left: 20px;
+            height: 35px;
+            width: 100px;
+            background: none;
+            color: white;
+            border: 1px solid white;
+        }
+    </style>
+    <div>
+        <h2 style="color:black"><b>Laporan Pengiriman Vaksin</b></h2><hr />
+    </div>
+    <div class="radius">
+        <center>
+            <table style="" class="styled-table radius" border="0">
+                <thead>
+                    <tr>
+                        <b>
+                            <th><center>No</center></th>
+                            @{
+                                foreach (var head in TableHeaders)
+                                {
+                                    <th>
+                                        <center>
+                                            @head
+                                        </center>
+                                    </th>
+                                }
+                            }
+                        </b>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td></td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.idLaporan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.idBPOM)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.idProdusen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.noRegVaksin)
+                            </td>
+                        </tr>
+                    }
+                        </tr>
+                        <!-- and so on... -->
+                    </tbody>
+                </table>
+            </center>
+        </div>
+

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vaksindbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="akun">
+    <Key>
+      <PropertyRef Name="role" />
+    </Key>
+    <Property Name="role" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="vaksindbModelStoreContainer">
+    <EntitySet Name="akun" EntityType="Self.akun" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

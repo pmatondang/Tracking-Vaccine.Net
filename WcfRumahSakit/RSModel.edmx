@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="vaksindbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bpom">
+          <Key>
+            <PropertyRef Name="idBPOM" />
+          </Key>
+          <Property Name="idBPOM" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="noTelepon" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="alamatBPOM" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pasien">
+          <Key>
+            <PropertyRef Name="nikPasien" />
+          </Key>
+          <Property Name="noRegPasien" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="nikPasien" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="noRekamMedis" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="namaPasien" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="alamatPasien" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idPemerintah" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="noRegVaksin" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="idRS" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="noTelepon" Type="varchar" MaxLength="13" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pelaporan_penggunaan">
+          <Key>
+            <PropertyRef Name="idPelaporanP" />
+          </Key>
+          <Property Name="idPelaporanP" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="idBPOM" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="idRS" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="noRegVaksin" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="nikPasien" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="noRekamMedis" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="statusV" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rumah_sakit">
+          <Key>
+            <PropertyRef Name="idRS" />
+          </Key>
+          <Property Name="idRS" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="namaRS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="alamatRS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nikPasien" Type="bigint" Nullable="false" />
+          <Property Name="noTelepon" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="noRegVaksin" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vaksin">
+          <Key>
+            <PropertyRef Name="idVaksin" />
+          </Key>
+          <Property Name="idVaksin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="noRegVaksin" Type="varchar" MaxLength="15" />
+          <Property Name="statusVPasien" Type="varchar" MaxLength="15" />
+          <Property Name="idProdusen" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="vaksindbModelStoreContainer">
+          <EntitySet Name="bpom" EntityType="Self.bpom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pasien" EntityType="Self.pasien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pelaporan_penggunaan" EntityType="Self.pelaporan_penggunaan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rumah_sakit" EntityType="Self.rumah_sakit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vaksin" EntityType="Self.vaksin" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="vaksindbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bpom">
+          <Key>
+            <PropertyRef Name="idBPOM" />
+          </Key>
+          <Property Name="idBPOM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noTelepon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="alamatBPOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pasien">
+          <Key>
+            <PropertyRef Name="nikPasien" />
+          </Key>
+          <Property Name="noRegPasien" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nikPasien" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noRekamMedis" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="namaPasien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="alamatPasien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idPemerintah" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idRS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noTelepon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pelaporan_penggunaan">
+          <Key>
+            <PropertyRef Name="idPelaporanP" />
+          </Key>
+          <Property Name="idPelaporanP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idBPOM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idRS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nikPasien" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noRekamMedis" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="statusV" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rumah_sakit">
+          <Key>
+            <PropertyRef Name="idRS" />
+          </Key>
+          <Property Name="idRS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="namaRS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="alamatRS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nikPasien" Type="Int64" Nullable="false" />
+          <Property Name="noTelepon" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vaksin">
+          <Key>
+            <PropertyRef Name="idVaksin" />
+          </Key>
+          <Property Name="idVaksin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="noRegVaksin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="statusVPasien" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="idProdusen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="vaksindbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bpom" EntityType="Self.bpom" />
+          <EntitySet Name="pasien" EntityType="Self.pasien" />
+          <EntitySet Name="pelaporan_penggunaan" EntityType="Self.pelaporan_penggunaan" />
+          <EntitySet Name="rumah_sakit" EntityType="Self.rumah_sakit" />
+          <EntitySet Name="vaksin" EntityType="Self.vaksin" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="vaksindbModelStoreContainer" CdmEntityContainer="vaksindbEntities">
+          <EntitySetMapping Name="bpom">
+            <EntityTypeMapping TypeName="vaksindbModel.bpom">
+              <MappingFragment StoreEntitySet="bpom">
+                <ScalarProperty Name="idBPOM" ColumnName="idBPOM" />
+                <ScalarProperty Name="noTelepon" ColumnName="noTelepon" />
+                <ScalarProperty Name="alamatBPOM" ColumnName="alamatBPOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pasien">
+            <EntityTypeMapping TypeName="vaksindbModel.pasien">
+              <MappingFragment StoreEntitySet="pasien">
+                <ScalarProperty Name="noRegPasien" ColumnName="noRegPasien" />
+                <ScalarProperty Name="nikPasien" ColumnName="nikPasien" />
+                <ScalarProperty Name="noRekamMedis" ColumnName="noRekamMedis" />
+                <ScalarProperty Name="namaPasien" ColumnName="namaPasien" />
+                <ScalarProperty Name="alamatPasien" ColumnName="alamatPasien" />
+                <ScalarProperty Name="idPemerintah" ColumnName="idPemerintah" />
+                <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+                <ScalarProperty Name="idRS" ColumnName="idRS" />
+                <ScalarProperty Name="noTelepon" ColumnName="noTelepon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pelaporan_penggunaan">
+            <EntityTypeMapping TypeName="vaksindbModel.pelaporan_penggunaan">
+              <MappingFragment StoreEntitySet="pelaporan_penggunaan">
+                <ScalarProperty Name="idPelaporanP" ColumnName="idPelaporanP" />
+                <ScalarProperty Name="idBPOM" ColumnName="idBPOM" />
+                <ScalarProperty Name="idRS" ColumnName="idRS" />
+                <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+                <ScalarProperty Name="nikPasien" ColumnName="nikPasien" />
+                <ScalarProperty Name="noRekamMedis" ColumnName="noRekamMedis" />
+                <ScalarProperty Name="statusV" ColumnName="statusV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rumah_sakit">
+            <EntityTypeMapping TypeName="vaksindbModel.rumah_sakit">
+              <MappingFragment StoreEntitySet="rumah_sakit">
+                <ScalarProperty Name="idRS" ColumnName="idRS" />
+                <ScalarProperty Name="namaRS" ColumnName="namaRS" />
+                <ScalarProperty Name="alamatRS" ColumnName="alamatRS" />
+                <ScalarProperty Name="nikPasien" ColumnName="nikPasien" />
+                <ScalarProperty Name="noTelepon" ColumnName="noTelepon" />
+                <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vaksin">
+            <EntityTypeMapping TypeName="vaksindbModel.vaksin">
+              <MappingFragment StoreEntitySet="vaksin">
+                <ScalarProperty Name="idVaksin" ColumnName="idVaksin" />
+                <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+                <ScalarProperty Name="statusVPasien" ColumnName="statusVPasien" />
+                <ScalarProperty Name="idProdusen" ColumnName="idProdusen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

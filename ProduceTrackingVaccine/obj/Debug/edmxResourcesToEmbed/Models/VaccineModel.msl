@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="vaksindbModelStoreContainer" CdmEntityContainer="VaccineEntities">
+    <EntitySetMapping Name="bpom">
+      <EntityTypeMapping TypeName="vaksindbModel.bpom">
+        <MappingFragment StoreEntitySet="bpom">
+          <ScalarProperty Name="idBPOM" ColumnName="idBPOM" />
+          <ScalarProperty Name="noTelepon" ColumnName="noTelepon" />
+          <ScalarProperty Name="alamatBPOM" ColumnName="alamatBPOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="laporanvaksin">
+      <EntityTypeMapping TypeName="vaksindbModel.laporanvaksin">
+        <MappingFragment StoreEntitySet="laporanvaksin">
+          <ScalarProperty Name="idLaporan" ColumnName="idLaporan" />
+          <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+          <ScalarProperty Name="idProdusen" ColumnName="idProdusen" />
+          <ScalarProperty Name="idBPOM" ColumnName="idBPOM" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="produsen">
+      <EntityTypeMapping TypeName="vaksindbModel.produsen">
+        <MappingFragment StoreEntitySet="produsen">
+          <ScalarProperty Name="idProdusen" ColumnName="idProdusen" />
+          <ScalarProperty Name="namaProdusen" ColumnName="namaProdusen" />
+          <ScalarProperty Name="alamatProdusen" ColumnName="alamatProdusen" />
+          <ScalarProperty Name="noTelepon" ColumnName="noTelepon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vaksin">
+      <EntityTypeMapping TypeName="vaksindbModel.vaksin">
+        <MappingFragment StoreEntitySet="vaksin">
+          <ScalarProperty Name="idVaksin" ColumnName="idVaksin" />
+          <ScalarProperty Name="noRegVaksin" ColumnName="noRegVaksin" />
+          <ScalarProperty Name="statusVPasien" ColumnName="statusVPasien" />
+          <ScalarProperty Name="idProdusen" ColumnName="idProdusen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
